@@ -82,13 +82,13 @@ export default function Icon(props) {
     return <IconPlaceholder />;
   }
 
-  const { size } = props;
+  const { name, svg, nameOrSVG, size , className, ...restProps} = props;
   const iconSizeClass = `hig__icon--${size}-size`;
-  const classes = cx(COMPONENT_CLASS, iconSizeClass);
+  const classes = cx(COMPONENT_CLASS, iconSizeClass, className);
 
   return (
     // eslint-disable-next-line react/no-danger
-    <div className={classes} dangerouslySetInnerHTML={{ __html: iconMarkup }} />
+    <div className={classes} dangerouslySetInnerHTML={{ __html: iconMarkup }} {...restProps}/>
   );
 }
 
